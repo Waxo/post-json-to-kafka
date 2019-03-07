@@ -1,6 +1,6 @@
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+> Publish list of object to kafka
 
-# post-json-to-kafka
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 ## Warning
 This module is currently experimental, you can't specify you kafka endpoint yet.
