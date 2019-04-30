@@ -4,7 +4,7 @@ const R = require('ramda');
 const sendToKafka = R.curry(
   (topic, to, messages) =>
     new Promise(resolve => {
-      const client = new KafkaClient();
+      const client = new KafkaClient({kafkaHost: process.env.KAFKA});
       const producer = new Producer(client);
 
       const payload = R.pipe(
@@ -16,7 +16,7 @@ const sendToKafka = R.curry(
         ),
         R.objOf('messages'),
         R.assoc('topic', topic),
-        object => [object]
+        R.of
       )(messages);
 
       producer.on('ready', () => {
