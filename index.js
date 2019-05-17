@@ -4,7 +4,7 @@ const R = require('ramda');
 const sendToKafka = R.curry(
   (topic, to, messages) =>
     new Promise(resolve => {
-      const client = new KafkaClient({kafkaHost: process.env.KAFKA});
+      const client = new KafkaClient({kafkaHost: process.env.KAFKA_URL});
       const producer = new Producer(client);
 
       const payload = R.pipe(
