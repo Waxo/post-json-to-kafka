@@ -2,9 +2,6 @@
 
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
-## Warning
-This module is currently experimental, you can't specify you kafka endpoint yet.
-
 ## Install
 ```bash
 yarn add post-json-to-kafka
@@ -12,6 +9,12 @@ yarn add post-json-to-kafka
 # or
 
 npm install --save post-json-to-kafka
+```
+
+## Configuring
+The location of kafka can be set by the environment variable:
+```bash
+KAFKA_URL=localhost:9092 # default
 ```
 
 ## Example usage
@@ -31,4 +34,13 @@ const exampleFunction = async () => {
 };
 
 exampleFunction().then(() => {console.log('Everything is sent')});
+```
+
+## Debugging
+This package uses the [debug package](https://www.npmjs.com/package/debug).
+You can configure it with environment variables:
+```bash
+DEBUG=post-json-to-kafka:debug # only debug messages
+DEBUG=post-json-to-kafka:trace # only trace messages
+DEBUG=post-json-to-kafka:*     # every messages
 ```

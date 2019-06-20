@@ -9,6 +9,7 @@
     "code-style": "xo"
   },
   "dependencies": {
+    "debug": "^4.1.1",
     "kafka-node": "^4.0.2",
     "ramda": "^0.26.1"
   },
