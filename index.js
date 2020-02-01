@@ -1,5 +1,6 @@
 const {KafkaClient, Producer} = require('kafka-node');
 const R = require('ramda');
+const error = require('debug')('post-json-to-kafka:error');
 const debug = require('debug')('post-json-to-kafka:debug');
 const trace = require('debug')('post-json-to-kafka:trace');
 
@@ -13,12 +14,7 @@ const sendToKafka = R.curry(
       const producer = new Producer(client);
 
       const payload = R.pipe(
-        R.map(
-          R.pipe(
-            R.assoc('to', to),
-            JSON.stringify
-          )
-        ),
+        R.map(R.pipe(R.assoc('to', to), JSON.stringify)),
         R.objOf('messages'),
         R.assoc('topic', topic),
         R.of,
@@ -32,6 +28,8 @@ const sendToKafka = R.curry(
           client.close(resolve);
         });
       });
+
+      producer.on('error', error);
     })
 );
 
