@@ -16,7 +16,10 @@
   "devDependencies": {
     "pre-commit": "^1.2.2",
     "prettier": "^1.19.1",
-    "xo": "^0.25.3"
+    "xo": "^0.47.0"
+  },
+  "resolutions": {
+    "simple-get": "4.0.1"
   },
   "pre-commit": [
     "code-style"
